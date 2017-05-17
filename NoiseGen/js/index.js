@@ -86,7 +86,7 @@ function animate() {
 
 //Redraw the current map
 function redraw() {
-     //console.log("REDRAW");
+     console.log("REDRAW");
      data = [];
      data = generateHeight(worldWidth, worldDepth);
      vertices = terrain.attributes.position.array;
@@ -99,6 +99,7 @@ function redraw() {
     noise.geometry.dispose();
     scene.remove(noise);
     noise = new THREE.Mesh(terrain, material);
+    scene.add(noise);
 }
 
 function render() {
