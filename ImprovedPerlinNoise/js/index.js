@@ -99,7 +99,7 @@ function redraw() {
     
     scene.remove(noise);
     noise = new THREE.Mesh(terrain, material);
-    scene.add(noise);
+    scene.add(new THREE.Mesh(terrain, material));
 }
 
 function render() {
