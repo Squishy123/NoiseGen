@@ -80,6 +80,7 @@ function animate() {
      data = [];
      data = generateHeight(worldWidth, worldDepth);
      vertices = [];
+     terrain.attributes.position.array = [];
      vertices = terrain.attributes.position.array;
 
 
