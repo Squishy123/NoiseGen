@@ -82,9 +82,10 @@ function animate() {
 
 }
 
-function render() {
-    terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
-    terrain.rotateX(- Math.PI / 2);
+//Redraw the current map
+function redraw() {
+      terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
+        terrain.rotateX(- Math.PI / 2);
      data = [];
      data = generateHeight(worldWidth, worldDepth);
      vertices = [];
@@ -99,6 +100,10 @@ function render() {
     noise.geometry.dispose();
     noise = new THREE.Mesh(terrain, material);
     scene.add(noise);
+}
+
+function render() {
+  
     
     // *** Update the scene ***
 
@@ -111,6 +116,7 @@ function render() {
 
     camera.position.x = Math.floor(Math.cos(timer) * 7500);
     camera.position.z = Math.floor(Math.sin(timer) * 7500);
+    redraw();
 
 
     renderer.render(scene, camera);
