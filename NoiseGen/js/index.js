@@ -88,10 +88,8 @@ function animate() {
 function redraw() {
      data = [];
      data = generateHeight(worldWidth, worldDepth);
-     vertices = [];
-     terrain.attributes.position.array = [];
      vertices = terrain.attributes.position.array;
-
+     vertices = [];
 
     for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
         vertices[j + 1] = data[i] * 10;
