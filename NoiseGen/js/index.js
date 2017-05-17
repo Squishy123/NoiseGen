@@ -75,8 +75,16 @@ function init() {
 }
 
 function animate() {
-     terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
-     terrain.rotateX(- Math.PI / 2);
+     
+    
+    requestAnimationFrame(animate);
+    render();
+
+}
+
+function render() {
+    terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
+    terrain.rotateX(- Math.PI / 2);
      data = [];
      data = generateHeight(worldWidth, worldDepth);
      vertices = [];
@@ -91,15 +99,7 @@ function animate() {
     noise.geometry.dispose();
     noise = new THREE.Mesh(terrain, material);
     scene.add(noise);
-    camera.lookAt(noise);
     
-    requestAnimationFrame(animate);
-    render();
-
-}
-
-function render() {
-
     // *** Update the scene ***
 
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
