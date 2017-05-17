@@ -10,8 +10,10 @@ animate();
 
 
 function generateHeight(width, height) {
-
+    //good seed values :
+    
     var size = width * height, data = new Uint8Array(size), quality = Math.random() * 10, z = Math.random() * 100;
+    console.log(quality);
 
     for (var j = 0; j < 4; j++) {
 
@@ -90,12 +92,12 @@ function redraw() {
      console.log("REDRAW");
      data = [];
      data = generateHeight(worldWidth, worldDepth);
-     vertices = terrain.attributes.position.array;
-     vertices = [];
+     vertices = new Array(terrain.attributes.position.array.length());
 
     for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
         vertices[j + 1] = data[i] * 10;
     }
+    terrain.attributes.position.array = vertices;
     terrain.verticesNeedUpdate = true;   
     
     scene.remove(noise);
