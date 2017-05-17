@@ -86,6 +86,7 @@ function animate() {
 
 //Redraw the current map
 function redraw() {
+    console.log("REDRAW");
      data = [];
      data = generateHeight(worldWidth, worldDepth);
      vertices = terrain.attributes.position.array;
