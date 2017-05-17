@@ -90,6 +90,7 @@ function redraw() {
      console.log("REDRAW");
      data = [];
      data = generateHeight(worldWidth, worldDepth);
+     terrain.attributes.position.array = [];
      vertices = terrain.attributes.position.array;
      vertices = [];
 
@@ -99,7 +100,7 @@ function redraw() {
     
     scene.remove(noise);
     noise = new THREE.Mesh(terrain, material);
-    scene.add(new THREE.Mesh(terrain, material));
+    scene.add(noise);
 }
 
 function render() {
