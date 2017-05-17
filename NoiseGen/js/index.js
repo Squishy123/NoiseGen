@@ -96,6 +96,7 @@ function redraw() {
     }
     
     noise.geometry.dispose();
+    scene.remove(noise);
     noise = new THREE.Mesh(terrain, material);
 }
 
