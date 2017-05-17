@@ -10,9 +10,9 @@ animate();
 
 function generateHeight(width, height) {
 
-    var size = width * height, data = new Uint8Array(size), quality = 1, z = Math.random() * 100;
+    var size = width * height, data = new Uint8Array(size), quality = 0.1, z = Math.random() * 100;
 
-    for (var j = 0; j < 5; j++) {
+    for (var j = 0; j < 4; j++) {
 
         for (var i = 0; i < size; i++) {
 
