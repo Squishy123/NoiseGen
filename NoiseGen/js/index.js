@@ -86,7 +86,8 @@ function animate() {
     for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
         vertices[j + 1] = data[i] * 10;
     }
-
+    
+    noise.geometry.dispose();
     noise = new THREE.Mesh(terrain, material);
     scene.add(noise);
     camera.lookAt(noise);
