@@ -50,6 +50,8 @@ function init() {
     //scene.add(mesh);
 
     terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
+     terrain.dynamic = true;
+     terrain.verticesNeedUpdate = true;   
     terrain.rotateX(- Math.PI / 2);
 
 
@@ -85,6 +87,8 @@ function animate() {
 //Redraw the current map
 function redraw() {
      terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
+     terrain.dynamic = true;
+     terrain.verticesNeedUpdate = true;   
      terrain.rotateX(- Math.PI / 2);
      data = [];
      data = generateHeight(worldWidth, worldDepth);
