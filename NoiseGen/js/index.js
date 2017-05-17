@@ -75,6 +75,8 @@ function init() {
 }
 
 function animate() {
+     terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
+    terrain.rotateX(- Math.PI / 2);
      data = generateHeight(worldWidth, worldDepth);
      vertices = terrain.attributes.position.array;
 
