@@ -2,7 +2,7 @@
 var camera, scene, renderer, geometry, material;
 var terrain, noise, mesh, data, vertices;
 
-var worldWidth = 256, worldDepth = 256,
+var worldWidth = 64, worldDepth = 64,
     worldHalfWidth = worldWidth / 2, worldHalfDepth = worldDepth / 2;
 
 init();
@@ -20,7 +20,7 @@ function generateHeight(width, height) {
         for (var i = 0; i < size; i++) {
 
             var x = i % width, y = ~~(i / width);
-            data[i] += Math.abs(improvedPerlinNoise(x / quality, y / quality, z) * quality * 1.75) * 0.35;
+            data[i] += Math.abs(improvedPerlinNoise(x / quality, y / quality, z) * quality * 1.75) * 0.75;
 
         }
 
