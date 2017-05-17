@@ -92,12 +92,16 @@ function redraw() {
      console.log("REDRAW");
      data = [];
      data = generateHeight(worldWidth, worldDepth);
-     vertices = new Array(terrain.attributes.position.array.length);
+     //vertices = new Array(terrain.attributes.position.array.length);
 
-    for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
-        vertices[j + 1] = data[i] * 10;
+    //for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
+    //    vertices[j + 1] = data[i] * 10;
+    //}
+    
+    for(var i = 0, j = 0; i < terrain.attributes.position.array.length; i++, j+= 3) {
+        terrain.attributes.position.array[j + 1] = data[i] * 10;   
     }
-    terrain.attributes.position.array = vertices;
+    
     terrain.verticesNeedUpdate = true;   
     
     scene.remove(noise);
