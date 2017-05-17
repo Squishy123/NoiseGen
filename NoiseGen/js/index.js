@@ -74,7 +74,18 @@ function init() {
 }
 
 function animate() {
+     var data = generateHeight(worldWidth, worldDepth);
+        var vertices = terrain.attributes.position.array;
 
+
+    for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
+        vertices[j + 1] = data[i] * 10;
+    }
+
+    noise = new THREE.Mesh(terrain, material);
+
+    scene.add(noise);
+    
     requestAnimationFrame(animate);
     render();
 
