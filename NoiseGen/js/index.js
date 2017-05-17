@@ -1,5 +1,6 @@
 
-var camera, scene, renderer, geometry, material, mesh, noise;
+var camera, scene, renderer, geometry, material;
+var terrain, noise, mesh, data, vertices;
 
 var worldWidth = 256, worldDepth = 256,
     worldHalfWidth = worldWidth / 2, worldHalfDepth = worldDepth / 2;
@@ -30,7 +31,7 @@ function generateHeight(width, height) {
 }
 
 function init() {
-    var data = generateHeight(worldWidth, worldDepth);
+    data = generateHeight(worldWidth, worldDepth);
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100000);
@@ -48,12 +49,12 @@ function init() {
     mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
 
-    var terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
+    terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
     terrain.rotateX(- Math.PI / 2);
 
 
     //var terrain = new THREE.PlaneBufferGeometry(100, 100, 100);
-    var vertices = terrain.attributes.position.array;
+    vertices = terrain.attributes.position.array;
 
 
     for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
@@ -74,8 +75,8 @@ function init() {
 }
 
 function animate() {
-     var data = generateHeight(worldWidth, worldDepth);
-        var vertices = terrain.attributes.position.array;
+     data = generateHeight(worldWidth, worldDepth);
+     vertices = terrain.attributes.position.array;
 
 
     for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
@@ -83,8 +84,6 @@ function animate() {
     }
 
     noise = new THREE.Mesh(terrain, material);
-
-    scene.add(noise);
     
     requestAnimationFrame(animate);
     render();
