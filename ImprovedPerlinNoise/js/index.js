@@ -64,6 +64,7 @@ function init() {
     }
 
     noise = new THREE.Mesh(terrain, material);
+    noise.geometry.dynamic = true;
 
     scene.add(noise);
     camera.lookAt(noise);
@@ -96,10 +97,8 @@ function redraw() {
         vertices[j + 1] = data[i] * 10;
     }
     
-    noise.geometry.dispose();
-    scene.remove(noise);
     noise = new THREE.Mesh(terrain, material);
-    scene.add(noise);
+    noise.geometry.verticesNeedUpdate = true;
 }
 
 function render() {
