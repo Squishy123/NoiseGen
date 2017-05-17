@@ -2,7 +2,7 @@
 var camera, scene, renderer, geometry, material;
 var terrain, noise, mesh, data, vertices;
 
-var worldWidth = 256, worldDepth = 256,
+var worldWidth = 64, worldDepth = 64,
     worldHalfWidth = worldWidth / 2, worldHalfDepth = worldDepth / 2;
 
 init();
