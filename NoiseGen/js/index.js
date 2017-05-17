@@ -84,8 +84,8 @@ function animate() {
 
 //Redraw the current map
 function redraw() {
-      terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
-        terrain.rotateX(- Math.PI / 2);
+     terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
+     terrain.rotateX(- Math.PI / 2);
      data = [];
      data = generateHeight(worldWidth, worldDepth);
      vertices = [];
@@ -99,7 +99,6 @@ function redraw() {
     
     noise.geometry.dispose();
     noise = new THREE.Mesh(terrain, material);
-    scene.add(noise);
 }
 
 function render() {
