@@ -97,8 +97,9 @@ function redraw() {
         vertices[j + 1] = data[i] * 10;
     }
     
+    scene.remove(noise);
     noise = new THREE.Mesh(terrain, material);
-    noise.geometry.verticesNeedUpdate = true;
+    scene.add(noise);
 }
 
 function render() {
