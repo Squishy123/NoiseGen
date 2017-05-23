@@ -10,7 +10,7 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100000);
-    camera.y = 5000;
+    camera.y = 5250;
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
@@ -26,7 +26,7 @@ function init() {
     var loader = new THREE.JSONLoader();
     loader.load('gundam.json', function (geometry) {
         mesh = new THREE.Mesh(geometry, material);
-        mesh.scale.set(7500, 7500, 7500);
+        mesh.scale.set(750, 750, 750);
         mesh.position.set(0, 0, 0);
         scene.add(mesh);
     });
