@@ -6,15 +6,6 @@ var worldWidth = 32, worldDepth = 32,
 
 init();
 animate();
-
-function initMesh() {
-    var loader = new THREE.JSONLoader();
-   var model = loader.parse('gundam.json');
-
-   var mesh = new THREE.Mesh(model.geometry, new Three.MeshBasicMaterial());
-   scene.add(mesh);
-}
-
 function init() {
     scene = new THREE.Scene();
 
@@ -32,14 +23,13 @@ function init() {
 
     //mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
-     var loader = new THREE.JSONLoader();
-    loader.load('gundam.json', function(geometry) {
-        mesh = new THREE.Mesh(geometry);
-        mesh.scale.set(100, 100, 100);
-        scene.add(mesh);
-        camera.lookAt(mesh);
-    });
+    var loader = new THREE.JSONLoader();
+    var model = loader.parse('gundam.json');
 
+    var mesh = new THREE.Mesh(model.geometry, new Three.MeshBasicMaterial());
+    scene.add(mesh);
+
+    
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -66,7 +56,7 @@ function render() {
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
 
-   // camera.position.x = Math.floor(Math.cos(timer) * 7500);
+    // camera.position.x = Math.floor(Math.cos(timer) * 7500);
     //camera.position.z = Math.floor(Math.sin(timer) * 7500);
 
 
