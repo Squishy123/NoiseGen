@@ -10,7 +10,7 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100000);
-    camera.y = 0;
+    camera.y = 1000;
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
@@ -59,7 +59,7 @@ function render() {
     timer = new Date().getTime() * 0.0005;
 
     camera.rotation.x = Math.cos(timer) * 10;
-    camera.rotation.z = Math.cos(timer) * 10;
+    camera.rotation.z = Math.sin(timer) * 10;
 
     renderer.render(scene, camera);
 }
