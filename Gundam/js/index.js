@@ -27,7 +27,7 @@ function init() {
     var loader = new THREE.JSONLoader();
     loader.load('gundam.json', function(geometry) {
         mesh = new THREE.Mesh(geometry, material);
-        mesh.scale.set(10, 10, 10);
+        mesh.scale.set(1, 1, 1);
         mesh.position.set(0,0,0);
         scene.add(mesh);
     });
@@ -58,7 +58,7 @@ function render() {
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
-    mesh.rotation.y = Math.cos(timer) * 10;
+    mesh.rotation.y = Math.cos(timer);
 
     renderer.render(scene, camera);
 }
