@@ -36,6 +36,7 @@ function init() {
     loader.load('gundam.json', function(geometry) {
         mesh = new THREE.Mesh(geometry);
         scene.add(mesh);
+        camera.lookAt(mesh);
     });
 
     renderer = new THREE.WebGLRenderer();
@@ -58,14 +59,14 @@ function render() {
     // *** Update the scene ***
 
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
-    camera.lookAt(mesh.position);
+    //camera.lookAt(mesh.position);
 
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
 
-    camera.position.x = Math.floor(Math.cos(timer) * 7500);
-    camera.position.z = Math.floor(Math.sin(timer) * 7500);
+   // camera.position.x = Math.floor(Math.cos(timer) * 7500);
+    //camera.position.z = Math.floor(Math.sin(timer) * 7500);
 
 
     renderer.render(scene, camera);
