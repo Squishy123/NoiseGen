@@ -75,8 +75,8 @@ function render() {
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
 
-    camera.position.x = Math.floor(Math.cos(timer) * 7500);
-    camera.position.z = Math.floor(Math.sin(timer) * 7500);
+    //camera.position.x = Math.floor(Math.cos(timer) * 7500);
+    //camera.position.z = Math.floor(Math.sin(timer) * 7500);
     //redraw();
 
 

@@ -1,8 +1,9 @@
 
 var camera, scene, renderer, geometry, material;
 var terrain, noise, mesh, data, vertices;
+var timer;
 
-var worldWidth = 64, worldDepth = 64,
+var worldWidth = 32, worldDepth = 32,
     worldHalfWidth = worldWidth / 2, worldHalfDepth = worldDepth / 2;
 
 init();
@@ -11,7 +12,7 @@ animate();
 
 function generateHeight(width, height) {
     //good seed values :
-    
+
     var size = width * height, data = new Uint8Array(size), quality = Math.random() * 10, z = Math.random() * 100;
     console.log(quality);
 
@@ -52,8 +53,8 @@ function init() {
     //scene.add(mesh);
 
     terrain = new THREE.PlaneBufferGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
-     terrain.dynamic = true;
-     terrain.verticesNeedUpdate = true;   
+    terrain.dynamic = true;
+    terrain.verticesNeedUpdate = true;
     terrain.rotateX(- Math.PI / 2);
 
 
@@ -80,38 +81,40 @@ function init() {
 }
 
 function animate() {
-     
-    
+
+
     requestAnimationFrame(animate);
     render();
-
 }
 
 //Redraw the current map
 function redraw() {
-     console.log("REDRAW");
-     data = [];
-     data = generateHeight(worldWidth, worldDepth);
-     //vertices = new Array(terrain.attributes.position.array.length);
+    console.log("REDRAW");
+    data = [];
+    data = generateHeight(worldWidth, worldDepth);
+    vertices = new Array(terrain.attributes.position.array.length);
 
     //for (var i = 0, j = 0; i < vertices.length; i++ , j += 3) {
     //    vertices[j + 1] = data[i] * 10;
     //}
-    
-    for(var i = 0, j = 0; i < terrain.attributes.position.array.length; i++, j+= 3) {
-        terrain.attributes.position.array[j + 1] = data[i] * 10;   
+
+    for (var i = 0, j = 0; i < terrain.attributes.position.array.length; i++ , j += 3) {
+        //terrain.attributes.position.array[j + 1] = data[i] * Math.cos(timer/ 1000);   
+        terrain.attributes.position.array[j + 1] = Math.cos(0.0000000000005 * timer) + data[i];
+        terrain.attributes.position.needsUpdate = true;
+        terrain.computeBoundingSphere();
+        mesh.geometry.verticesNeedUpdate = true;
+
     }
-    
-    terrain.verticesNeedUpdate = true;   
-    
+
     scene.remove(noise);
     noise = new THREE.Mesh(terrain, material);
     scene.add(noise);
 }
 
 function render() {
-  
-    
+
+
     // *** Update the scene ***
 
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
@@ -119,7 +122,7 @@ function render() {
 
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
-    var timer = new Date().getTime() * 0.00005;
+    timer = new Date().getTime() * 0.00005;
 
     camera.position.x = Math.floor(Math.cos(timer) * 7500);
     camera.position.z = Math.floor(Math.sin(timer) * 7500);
