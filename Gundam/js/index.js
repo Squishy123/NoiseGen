@@ -26,7 +26,7 @@ function init() {
     var loader = new THREE.JSONLoader();
     loader.load('gundam.json', function (geometry) {
         mesh = new THREE.Mesh(geometry, material);
-        mesh.scale.set(10, 10, 10);
+        mesh.scale.set(1000, 1000, 1000);
         mesh.position.set(0, 0, 0);
         scene.add(mesh);
     });
