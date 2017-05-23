@@ -11,7 +11,6 @@ function init() {
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100000);
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
-    camera.position.y = 5000;
     scene.add(camera);
 
     var light = new THREE.AmbientLight(0x404040);
@@ -58,8 +57,9 @@ function render() {
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
 
-    camera.position.x = Math.floor(Math.cos(timer) * 7500);
-    camera.position.z = Math.floor(Math.sin(timer) * 7500);
+    camera.position.x = Math.cos(timer) * 10;
+    camera.position.y = 5;
+    camera.position.z = Math.sin(timer) * 10;
 
 
     renderer.render(scene, camera);
