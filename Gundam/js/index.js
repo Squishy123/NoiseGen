@@ -29,7 +29,7 @@ function init() {
     var mesh = new THREE.Mesh(model.geometry, new Three.MeshBasicMaterial());
     scene.add(mesh);
 
-    
+
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -50,14 +50,14 @@ function render() {
     // *** Update the scene ***
 
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
-    //camera.lookAt(mesh.position);
+    camera.lookAt(scene.position);
 
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
 
-    // camera.position.x = Math.floor(Math.cos(timer) * 7500);
-    //camera.position.z = Math.floor(Math.sin(timer) * 7500);
+    camera.position.x = Math.floor(Math.cos(timer) * 7500);
+    camera.position.z = Math.floor(Math.sin(timer) * 7500);
 
 
     renderer.render(scene, camera);
