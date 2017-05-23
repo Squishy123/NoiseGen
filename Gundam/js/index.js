@@ -32,7 +32,7 @@ function init() {
 
     //mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
-     var loader = new THREE.JSONLoader();
+     var loader = new THREE.ObjectLoader();
     loader.load('gundam.json', function(geometry) {
         mesh = new THREE.Mesh(geometry);
         mesh.scale.set(100, 100, 100);
