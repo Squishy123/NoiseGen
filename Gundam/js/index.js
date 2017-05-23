@@ -24,10 +24,10 @@ function init() {
     //mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
     var loader = new THREE.JSONLoader();
-    var model = loader.parse("gundam.json");
-
-    var mesh = new THREE.Mesh(model.geometry, new Three.MeshBasicMaterial());
-    scene.add(mesh);
+    loader.load('gundam.json', function(geometry) {
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+    });
 
 
     renderer = new THREE.WebGLRenderer();
