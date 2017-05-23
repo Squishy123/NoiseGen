@@ -58,7 +58,7 @@ function render() {
     timer = new Date().getTime() * 0.0005;
 
     camera.position.x = Math.cos(timer) * 10;
-    camera.position.y = 5;
+    camera.position.y = 100;
     camera.position.z = Math.sin(timer) * 10;
 
 
