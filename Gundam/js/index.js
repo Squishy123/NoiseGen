@@ -1,5 +1,5 @@
 
-var camera, scene, renderer, geometry, material, mesh;
+var camera, scene, renderer, geometry, material, mesh, control;
 
 var worldWidth = 32, worldDepth = 32,
     worldHalfWidth = worldWidth / 2, worldHalfDepth = worldDepth / 2;
@@ -11,6 +11,8 @@ function init() {
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100000);
     camera.y = 10000;
+    camera.lookAt(new THREE.Vector3(0,0,0));
+    control =  new OrbitControls(camera);
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
@@ -52,14 +54,14 @@ function render() {
     // *** Update the scene ***
 
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
-    camera.lookAt(new THREE.Vector3(0,0,0));
+    //camera.lookAt(new THREE.Vector3(0,0,0));
 
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
-    timer = new Date().getTime() * 0.00005;
+   // timer = new Date().getTime() * 0.00005;
 
-    camera.position.x = Math.floor(Math.cos(timer) * 7500);
-    camera.position.z = Math.floor(Math.sin(timer) * 7500);
+   // camera.position.x = Math.floor(Math.cos(timer) * 7500);
+   // camera.position.z = Math.floor(Math.sin(timer) * 7500);
 
     renderer.render(scene, camera);
 }
