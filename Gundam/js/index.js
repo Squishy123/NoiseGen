@@ -58,7 +58,7 @@ function render() {
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
-    mesh.rotation.y = Math.cos(timer);
+   // mesh.rotation.y =timer;
 
     renderer.render(scene, camera);
 }
