@@ -9,10 +9,10 @@ animate();
 
 function initMesh() {
     var loader = new THREE.JSONLoader();
-    loader.load('gundam.json', function(geometry) {
-        mesh = new THREE.Mesh(geometry);
-        scene.add(mesh);
-    });
+   var model = loader.parse('gundam.json');
+
+   var mesh = new THREE.Mesh(model.geometry, new Three.MeshBasicMaterial());
+   scene.add(mesh);
 }
 
 function init() {
