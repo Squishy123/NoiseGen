@@ -57,9 +57,9 @@ function render() {
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
 
-    camera.position.x = Math.cos(timer) * 10;
+    camera.position.x = Math.cos(timer) * 1000;
     camera.position.y = 100;
-    camera.position.z = Math.sin(timer) * 10;
+    camera.position.z = Math.sin(timer) * 1000;
 
 
     renderer.render(scene, camera);
