@@ -50,9 +50,9 @@ function render() {
 
 
     // *** Update the scene ***
-    mesh.geometry.computeBoundingSphere();
+
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
-    camera.lookAt(mesh.geometry.boundingSphere.center);
+    camera.lookAt(new THREE.Vector3(0,0,0));
 
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
