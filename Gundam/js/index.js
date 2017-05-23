@@ -10,7 +10,7 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100000);
-    camera.y = 25;
+    camera.y = 0;
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
@@ -24,10 +24,10 @@ function init() {
     //mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
     var loader = new THREE.JSONLoader();
-    loader.load('gundam.json', function(geometry) {
+    loader.load('gundam.json', function (geometry) {
         mesh = new THREE.Mesh(geometry, material);
         mesh.scale.set(10, 10, 10);
-        mesh.position.set(0,0,0);
+        mesh.position.set(0, 0, 0);
         scene.add(mesh);
     });
 
@@ -52,12 +52,14 @@ function render() {
     // *** Update the scene ***
 
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
-    camera.lookAt(new THREE.Vector3(0,0,0));
+    camera.lookAt(mesh.geometry.boundingSphere.center);
 
     // Move the camera in a circle with the pivot point in the centre of this circle...
     // ...so that the pivot point, and focus of the camera is on the centre of our scene.
     timer = new Date().getTime() * 0.0005;
-   // mesh.rotation.y =timer;
+
+    camera.rotation.x = Math.cos(timer) * 1000;
+    camera.rotation.z = Math.cos(timer) * 1000;
 
     renderer.render(scene, camera);
 }
