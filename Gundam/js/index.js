@@ -50,7 +50,7 @@ function render() {
 
 
     // *** Update the scene ***
-
+    mesh.geometry.computeBoundingSphere();
     // Set the camera to always point to the centre of our scene, i.e. at vector 0, 0, 0
     camera.lookAt(mesh.geometry.boundingSphere.center);
 
