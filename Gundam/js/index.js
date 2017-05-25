@@ -1,4 +1,4 @@
-var camera, scene, renderer, geometry, material, mesh, control;
+var camera, scene, renderer, geometry, material, mesh, control, rendererstats;
 
 var worldWidth = 32, worldDepth = 32,
     worldHalfWidth = worldWidth / 2, worldHalfDepth = worldDepth / 2;
@@ -43,7 +43,12 @@ function init() {
         console.log("WEBGL IS NOT AVAILABLE. USING CANVAS RENDERER");
     }
     document.body.appendChild(renderer.domElement);
-
+    
+    rendererstats = new THREEx.RendererStats();
+    rendererstats.domElement.style.position = 'absolute';
+    rendererstats.domElement.style.left = '0px';
+    rendererstats.domElement.style.bottom = '0px';
+    document.body.appendChild(rendererstats.domElement);
 }
 
 function animate() {
@@ -54,7 +59,7 @@ function animate() {
 }
 
 function render() {
-
+    rendererstats.update(renderer);
 
     // *** Update the scene ***
 
