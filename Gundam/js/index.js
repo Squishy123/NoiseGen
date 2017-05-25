@@ -42,13 +42,14 @@ function init() {
          renderer.setSize(window.innerWidth, window.innerHeight);
         console.log("WEBGL IS NOT AVAILABLE. USING CANVAS RENDERER");
     }
-    document.body.appendChild(renderer.domElement);
+    //document.body.appendChild(renderer.domElement);
     
-    rendererstats = new THREEx.RendererStats();
-    rendererstats.domElement.style.position = 'absolute';
-    rendererstats.domElement.style.left = '0px';
-    rendererstats.domElement.style.bottom = '0px';
-    document.body.appendChild(rendererstats.domElement);
+    //rendererstats = new THREEx.RendererStats();
+    //rendererstats.domElement.style.position = 'absolute';
+    //rendererstats.domElement.style.left = '0px';
+    //rendererstats.domElement.style.bottom = '0px';
+    //document.body.appendChild(rendererstats.domElement);
+
 }
 
 function animate() {
