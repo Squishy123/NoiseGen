@@ -1,5 +1,3 @@
-var THREE = require('three')
-var OrbitControls = require('three-orbit-controls')
 var camera, scene, renderer, geometry, material, mesh, control;
 
 var worldWidth = 32, worldDepth = 32,
