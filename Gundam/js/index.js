@@ -33,22 +33,25 @@ function init() {
         scene.add(mesh);
     });
 
-    if(webglAvailable()) {
-    renderer = new THREE.WebGLRenderer();
-         renderer.setSize(window.innerWidth, window.innerHeight);
+    if (webglAvailable()) {
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
         console.log("WEBGL RENDERER ENABLED");
     } else {
-     renderer = new THREE.CanvasRenderer();   
-         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer = new THREE.CanvasRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
         console.log("WEBGL IS NOT AVAILABLE. USING CANVAS RENDERER");
     }
-    //document.body.appendChild(renderer.domElement);
-    
-    //rendererstats = new THREEx.RendererStats();
-    //rendererstats.domElement.style.position = 'absolute';
-    //rendererstats.domElement.style.left = '0px';
-    //rendererstats.domElement.style.bottom = '0px';
-    //document.body.appendChild(rendererstats.domElement);
+
+    var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//rawgit.com/mrdoob/stats.js/master/build/stats.min.js'; document.head.appendChild(script);
+
+    document.body.appendChild(renderer.domElement);
+
+    rendererstats = new THREEx.RendererStats();
+    rendererstats.domElement.style.position = 'absolute';
+    rendererstats.domElement.style.left = '0px';
+    rendererstats.domElement.style.bottom = '0px';
+    document.body.appendChild(rendererstats.domElement);
 
 }
 
@@ -94,7 +97,7 @@ function webglAvailable() {
         var canvas = document.createElement('canvas');
         return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
         );
-    } catch(e) {
+    } catch (e) {
         return false;
     }
 }
