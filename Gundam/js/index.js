@@ -19,14 +19,14 @@ function init() {
     scene.add(light);
 
     geometry = new THREE.CubeGeometry(500, 500, 500);
-    //material = new THREE.MeshNormalMaterial();
-    //material.wireframe = true;
+    material = new THREE.MeshNormalMaterial();
+    material.wireframe = true;
 
     //mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
     var loader = new THREE.JSONLoader();
     loader.load('res/models/gundam.json', function (geometry, materials) {
-        var material = materials[0];
+        //var material = materials[0];
         mesh = new THREE.Mesh(geometry, material);
         mesh.scale.set(10, 10, 10);
         mesh.position.set(0, 0, 0);
