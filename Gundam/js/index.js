@@ -1,4 +1,5 @@
-//OrbitControls = require('three-orbit-controls')(THREE)
+var THREE = require('three')
+var OrbitControls = require('three-orbit-controls')
 var camera, scene, renderer, geometry, material, mesh, control;
 
 var worldWidth = 32, worldDepth = 32,
@@ -26,7 +27,7 @@ function init() {
     //mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
     var loader = new THREE.JSONLoader();
-    loader.load('gundam.json', function (geometry) {
+    loader.load('res/models/gundam.json', function (geometry) {
         mesh = new THREE.Mesh(geometry, material);
         mesh.scale.set(750, 750, 750);
         mesh.position.set(0, -3000, 0);
