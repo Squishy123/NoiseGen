@@ -20,7 +20,7 @@ function init() {
 
     geometry = new THREE.CubeGeometry(500, 500, 500);
     material = new THREE.MeshNormalMaterial();
-    material.wireframe = true;
+    //material.wireframe = false;
 
     //mesh = new THREE.Mesh(geometry, material);
     //scene.add(mesh);
