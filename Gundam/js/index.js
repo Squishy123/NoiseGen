@@ -35,9 +35,11 @@ function init() {
 
     if(webglAvailable()) {
     renderer = new THREE.WebGLRenderer();
+        console.log("WEBGL RENDERER ENABLED");
     renderer.setSize(window.innerWidth, window.innerHeight);
     } else {
      renderer = new THREE.CanvasRenderer();   
+        console.log("WEBGL IS NOT AVAILABLE. USING CANVAS RENDERER");
     }
     document.body.appendChild(renderer.domElement);
 
