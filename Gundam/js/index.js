@@ -18,7 +18,7 @@ function init() {
     var light = new THREE.AmbientLight(0x404040); // soft white light
     scene.add(light);
 
-    geometry = new THREE.CubeGeometry(500, 500, 500);
+    //geometry = new THREE.CubeGeometry(500, 500, 500);
 
     var plane = new THREE.Mesh(new THREE.PlaneGeometry(100, 100, 32), new THREE.MeshBasicMaterial({ color: "#d3d3d3", side: THREE.DoubleSide }));
     plane.rotateX(3 * Math.PI / 2);
