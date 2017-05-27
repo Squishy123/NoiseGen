@@ -24,15 +24,15 @@ function init() {
     plane.rotateX(3 * Math.PI / 2);
     scene.add(plane);
 
-    //var loader = new THREE.JSONLoader();
-    //loader.load('res/models/Zeta-Gundam.json', function (geometry, materials) {
+    var loader = new THREE.JSONLoader();
+    loader.load('res/models/Zeta-Gundam.json', function (geometry, materials) {
         //console.log(materials);
      //   material = materials[0];
-       // mesh = new THREE.Mesh(geometry, material);
-       // mesh.scale.set(10, 10, 10);
-        //mesh.position.set(0, 0, 0);
-        //scene.add(mesh);
-    //});
+       mesh = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial());
+       mesh.scale.set(10, 10, 10);
+        mesh.position.set(0, 0, 0);
+        scene.add(mesh);
+    });
 
     if (webglAvailable()) {
         renderer = new THREE.WebGLRenderer();
