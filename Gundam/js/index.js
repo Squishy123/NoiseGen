@@ -16,7 +16,7 @@ function init() {
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
-    var light = new THREE.PointLight( 0xff0000, 1000, 1000 );
+    var light = new THREE.PointLight( 0xffffff, 1000, 1000 );
     light.position.set(0, 250, 100);
     scene.add( light );
 
