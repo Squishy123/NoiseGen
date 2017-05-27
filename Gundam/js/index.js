@@ -15,24 +15,24 @@ function init() {
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
-    var light = new THREE.AmbientLight(0x404040);
+    var light = new THREE.AmbientLight(0x404040); // soft white light
     scene.add(light);
 
     geometry = new THREE.CubeGeometry(500, 500, 500);
-    material = new THREE.MeshNormalMaterial();
-    //material.wireframe = false;
 
-    //mesh = new THREE.Mesh(geometry, material);
-    //scene.add(mesh);
-    var loader = new THREE.JSONLoader();
-    loader.load('res/models/Zeta-Gundam.json', function (geometry, materials) {
-        console.log(materials);
-        var material = materials[0];
-        mesh = new THREE.Mesh(geometry, material);
-        mesh.scale.set(10, 10, 10);
-        mesh.position.set(0, 0, 0);
-        scene.add(mesh);
-    });
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(100, 100, 32), new THREE.MeshBasicMaterial({ color: "#d3d3d3", side: THREE.DoubleSide }));
+    plane.rotateX(3 * Math.PI / 2);
+    scene.add(plane);
+
+    //var loader = new THREE.JSONLoader();
+    //loader.load('res/models/Zeta-Gundam.json', function (geometry, materials) {
+        //console.log(materials);
+     //   material = materials[0];
+       // mesh = new THREE.Mesh(geometry, material);
+       // mesh.scale.set(10, 10, 10);
+        //mesh.position.set(0, 0, 0);
+        //scene.add(mesh);
+    //});
 
     if (webglAvailable()) {
         renderer = new THREE.WebGLRenderer();
