@@ -16,8 +16,8 @@ function init() {
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
-    var light = new THREE.PointLight( 0xff0000, 1, 100 );
-    light.position.set( 0, 500, 0 );
+    var light = new THREE.PointLight( 0xff0000, 1000, 1000 );
+    light.position.set(0, 250, 100);
     scene.add( light );
 
     //geometry = new THREE.CubeGeometry(500, 500, 500);
