@@ -12,6 +12,7 @@ function init() {
     controls = new OrbitControls(camera);
     control = new OrbitControls(camera);
     camera.position.z = 100;
+    camera.position.y = 500;
     //camera.position.y = data[worldHalfWidth + worldHalfDepth * worldWidth] * 10 + 500;
     scene.add(camera);
 
@@ -28,8 +29,8 @@ function init() {
     loader.load('res/models/Zeta-Gundam.json', function (geometry, materials) {
         //console.log(materials);
         material = materials[0];
-       mesh = new THREE.Mesh(geometry, material);
-       mesh.scale.set(10, 10, 10);
+        mesh = new THREE.Mesh(geometry, material);
+        mesh.scale.set(10, 10, 10);
         mesh.position.set(0, 0, 0);
         scene.add(mesh);
     });
