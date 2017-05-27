@@ -20,15 +20,15 @@ function init() {
 
     //geometry = new THREE.CubeGeometry(500, 500, 500);
 
-    var plane = new THREE.Mesh(new THREE.PlaneGeometry(100, 100, 32), new THREE.MeshBasicMaterial({ color: "#d3d3d3", side: THREE.DoubleSide }));
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 32), new THREE.MeshBasicMaterial({ color: "#d3d3d3", side: THREE.DoubleSide }));
     plane.rotateX(3 * Math.PI / 2);
     scene.add(plane);
 
     var loader = new THREE.JSONLoader();
     loader.load('res/models/Zeta-Gundam.json', function (geometry, materials) {
         //console.log(materials);
-     //   material = materials[0];
-       mesh = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial());
+        material = materials[0];
+       mesh = new THREE.Mesh(geometry, material);
        mesh.scale.set(10, 10, 10);
         mesh.position.set(0, 0, 0);
         scene.add(mesh);
