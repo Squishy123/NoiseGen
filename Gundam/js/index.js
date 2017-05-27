@@ -27,7 +27,7 @@ function init() {
     var loader = new THREE.JSONLoader();
     loader.load('res/models/Zeta-Gundam.json', function (geometry, materials) {
         console.log(materials);
-        var material = new THREE.MeshBasicMaterial(materials);
+        var material = materials[0];
         mesh = new THREE.Mesh(geometry, material);
         mesh.scale.set(10, 10, 10);
         mesh.position.set(0, 0, 0);
